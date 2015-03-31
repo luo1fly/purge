@@ -50,21 +50,21 @@ def purgesite(request,userid):
         else:
             validsku.append(sku)
     
-    if not invalidsku:
+    #if not invalidsku:
         
-        result_dic = {'test':1}
-        for sku in validsku:
-            pro = Product(sku)
-            if not pro.lst1:
-                continue
-            pro_dic = pro.clearCache(pic_lst,optuser)
-            #print pro_dic
-            result_dic.update(pro_dic)
-            #return HttpResponse('validsku:'+str(validsku))
-            
-        return render_to_response('result.html',{'dicts':result_dic})
-    else:
-        return HttpResponse('invalid sku:'+str(invalidsku))
+    result_dic = {}
+    for sku in validsku:
+        pro = Product(sku)
+        if not pro.lst1:
+            continue
+        pro_dic = pro.clearCache(optuser)
+        #print pro_dic
+        result_dic.update(pro_dic)
+        #return HttpResponse('validsku:'+str(validsku))
+        
+    return render_to_response('result.html',{'dicts':result_dic,'invalidsku':invalidsku})
+    #else:
+    #   return HttpResponse('invalid sku:'+str(invalidsku))
         
         #print skulist
         #return HttpResponse(skulist)

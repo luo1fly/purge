@@ -6,3 +6,11 @@
     <br>	  
   </tr>		  
 {% endfor %}</span>
+
+{%if invalidsku %} 
+		<script type="text/javascript">
+			$( document ).ready(function() {
+			  $( "#invalidsku" ).effect( "shake" );
+			});
+		</script><p id="invalidsku"  style="color:red;margin:center"> invalid sku: {{invalidsku}} </p>
+{%endif%}

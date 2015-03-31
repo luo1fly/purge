@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 class History(models.Model):
     sku = models.IntegerField()
     pic_url = models.CharField(max_length=128)
+    cleaned_status = models.IntegerField()
     cleaned_by = models.ForeignKey('OptUser')
     cleaned_at = models.DateTimeField(auto_now_add = True)
     

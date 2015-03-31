@@ -41,11 +41,12 @@ class Product(object):
                 models.History.objects.create(
                     sku = int(self.skuno),
                     pic_url = url,
+                    cleaned_status = self.url_dic[url],
                     cleaned_by = optuser,
                     cleaned_at = datetime.now()
                 )
             #cleanedsku.append(lst_skuno[i])
         return self.url_dic
+  
     
-    def writeLog(self):
         
