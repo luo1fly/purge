@@ -1,0 +1,20 @@
+<form id="shakeForm" action="/user_login/" method="POST">
+            <div class="form-group">
+              <input type="text" class="form-control login-field" name="user" value="" placeholder="Enter your name" id="login-name" />
+              <label class="login-field-icon fui-user" for="login-name"></label>
+            </div>
+
+            <div class="form-group">
+              <input type="password" class="form-control login-field"  name="password" value="" placeholder="Password" id="login-pass" />
+              <label class="login-field-icon fui-lock" for="login-pass"></label>
+            </div>
+	     <button type="submit" class="btn btn-primary btn-lg btn-block">Log me in</button>
+            <a class="login-link" href="/forgot/">Lost your password?</a>
+</form>
+{%if err%} 
+		<script type="text/javascript">
+			$( document ).ready(function() {
+			  $( "#err" ).effect( "shake" );
+			});
+		</script><p id="err"  style="color:red;margin:center">{{err}} </p>
+{%endif%}

@@ -1,0 +1,13 @@
+<form id="fm" action="/purge/{{userid.id}}/" method="POST">
+  <p>SKUs need to be cleaned(separated with ,): <input type="text" name="skulist" /></p>
+  <input type="submit" value="Submit" />
+</form>
+{%if err%} 
+		<script type="text/javascript">
+			$( document ).ready(function() {
+			  $( "#err" ).effect( "shake" );
+			});
+		</script><p id="err"  style="color:red;margin:center">{{err}} </p>
+{%endif%}
+
+{{ userid.id }}
