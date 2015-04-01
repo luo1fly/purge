@@ -43,6 +43,7 @@ def purgesite(request,userid):
     skulist = re.sub('\D',',',sku).split(',')
     invalidsku = []
     validsku = []
+    non_sku = []
     for sku in skulist:
         Valid = re.match('^\d{6}$',sku)
         if not Valid:
@@ -56,13 +57,14 @@ def purgesite(request,userid):
     for sku in validsku:
         pro = Product(sku)
         if not pro.lst1:
+            non_sku.append(sku)
             continue
         pro_dic = pro.clearCache(optuser)
         #print pro_dic
         result_dic.update(pro_dic)
         #return HttpResponse('validsku:'+str(validsku))
         
-    return render_to_response('result.html',{'dicts':result_dic,'invalidsku':invalidsku})
+    return render_to_response('result.html',{'dicts':result_dic,'invalidsku':invalidsku,'non_sku':non_sku})
     #else:
     #   return HttpResponse('invalid sku:'+str(invalidsku))
         

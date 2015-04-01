@@ -14,11 +14,8 @@ class Product(object):
                                            self.skuno)
         #instance: ls /www/htdocs/productimages/1/0/0/sku_100035_1.jpg
         self.lst1 = os.popen(cmd).readlines()
-        if not self.lst1:
+        if self.lst1:
             #empty lst means no sku pic exist
-            return self.lst1
-        #
-        else:
             self.pic_lst = [ i.strip() for i in self.lst1 ]
             self.url_lst = [self.req_addr+os.path.basename(p) for p in self.pic_lst]
             self.url_dic = dict.fromkeys(self.url_lst)

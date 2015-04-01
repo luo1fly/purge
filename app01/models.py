@@ -9,7 +9,7 @@ class History(models.Model):
     cleaned_at = models.DateTimeField(auto_now_add = True)
     
     def __unicode__(self):
-        return self.sku
+        return '%s'% self.sku
     
 class OptUser(models.Model):
     user = models.OneToOneField(User)

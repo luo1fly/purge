@@ -1,16 +1,24 @@
-<span style="color: #000000;">
-{% for key,value in dicts.items %}
-  <tr class="{% cycle 'altrow' '' %}">				
-    <td>{{ key }}:</td>	
-    <td>{{ value }}</td>	
-    <br>	  
-  </tr>		  
-{% endfor %}</span>
-
-{%if invalidsku %} 
-		<script type="text/javascript">
-			$( document ).ready(function() {
-			  $( "#invalidsku" ).effect( "shake" );
-			});
-		</script><p id="invalidsku"  style="color:red;margin:center"> invalid sku: {{invalidsku}} </p>
-{%endif%}
+	<span style="color: #000000;">
+	{% for key,value in dicts.items %}
+	  <tr class="{% cycle 'altrow' '' %}">				
+	    <td>{{ key }}:</td>	
+	    <td>{{ value }}</td>	
+	    <br>	  
+	  </tr>		  
+	{% endfor %}</span>
+	
+	{%if invalidsku %} 
+			<script type="text/javascript">
+				$( document ).ready(function() {
+				  $( "#invalidsku" ).effect( "shake" );
+				});
+			</script><p id="invalidsku"  style="color:red;margin:center"> invalid sku: {{invalidsku}} </p>
+	{%endif%}
+			
+	{%if non_sku %} 
+			<script type="text/javascript">
+				$( document ).ready(function() {
+				  $( "#non_sku" ).effect( "shake" );
+				});
+			</script><p id="non_sku"  style="color:red;margin:center"> non_existed sku: {{non_sku}} </p>
+	{%endif%}
