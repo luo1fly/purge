@@ -56,7 +56,7 @@ def purgesite(request,userid):
     result_dic = {}
     for sku in validsku:
         pro = Product(sku)
-        if not pro.lst1:
+        if not pro.pic_lst:
             non_sku.append(sku)
             continue
         pro_dic = pro.clearCache(optuser)
